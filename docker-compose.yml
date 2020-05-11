@@ -1,0 +1,15 @@
+version: '2'
+services:
+  git-auto-push:
+    #build:
+    #  context: .
+    #  dockerfile: Dockerfile
+    image: jakehu/git-auto-push:latest
+    container_name: git-auto-push
+    restart: always
+    volumes:
+      - /Users/jakehu/Documents/Web/maintain:/opt/Web/maintain
+      - /Users/jakehu/Documents/Web/resources:/opt/Web/resources
+      - /Users/jakehu/Documents/Web/hexo:/opt/Web/hexo
+      - /Users/jakehu/Documents/Web/git-auto-push:/opt/Web/git-auto-push
+      - /Users/jakehu/.ssh:/root/.ssh
