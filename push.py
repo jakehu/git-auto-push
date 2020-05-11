@@ -15,11 +15,11 @@ def push():
         for _repo in REPO_NAMES:
             repo = Repo(REPO_DIR + _repo)
             print(repo)
-            if repo.is_dirty():  # 有文件修改
-                repo.git.add(update=True)
+            #if repo.is_dirty():  # 有文件修改
+            if len(repo.untracked_files) > 0:
+                repo.git.add('./*')
                 repo.index.commit(COMMIT_MESSAGE)
                 origin = repo.remote(name='origin')
-                print(origin)
                 origin.push()
             pass
     except Exception as e:
